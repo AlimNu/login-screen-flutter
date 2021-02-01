@@ -16,70 +16,72 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Create A New Account',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Image.asset(
-            'assets/images/signup.png',
-            height: size.height * 0.3,
-          ),
-          SizedBox(
-            height: size.height * 0.03,
-          ),
-          RoundedInputField(
-            hintText: 'Your Email',
-            onChanged: (value) {},
-          ),
-          RoundedPasswordField(
-            onChanged: (value) {},
-          ),
-          SizedBox(
-            height: size.height * 0.03,
-          ),
-          RoundedBotton(
-            text: 'Sign Up',
-            press: () {},
-            color: kPrimaryColor,
-          ),
-          SizedBox(
-            height: size.height * 0.03,
-          ),
-          AlreadyHaveAnAccountCheck(
-            login: false,
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginScreen();
-                  },
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Create A New Account',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Image.asset(
+              'assets/images/signup.png',
+              height: size.height * 0.3,
+            ),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            RoundedInputField(
+              hintText: 'Your Email',
+              onChanged: (value) {},
+            ),
+            RoundedPasswordField(
+              onChanged: (value) {},
+            ),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            RoundedBotton(
+              text: 'Sign Up',
+              press: () {},
+              color: kPrimaryColor,
+            ),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            AlreadyHaveAnAccountCheck(
+              login: false,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen();
+                    },
+                  ),
+                );
+              },
+            ),
+            OrDivider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SocialIcon(
+                  iconSrc: 'assets/icons/facebook.svg',
+                  press: () {},
                 ),
-              );
-            },
-          ),
-          OrDivider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SocialIcon(
-                iconSrc: 'assets/icons/facebook.svg',
-                press: () {},
-              ),
-              SocialIcon(
-                iconSrc: 'assets/icons/twitter.svg',
-                press: () {},
-              ),
-              SocialIcon(
-                iconSrc: 'assets/icons/google.svg',
-                press: () {},
-              ),
-            ],
-          )
-        ],
+                SocialIcon(
+                  iconSrc: 'assets/icons/twitter.svg',
+                  press: () {},
+                ),
+                SocialIcon(
+                  iconSrc: 'assets/icons/google.svg',
+                  press: () {},
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
